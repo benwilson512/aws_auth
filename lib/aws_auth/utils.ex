@@ -2,7 +2,7 @@ defmodule AWSAuth.Utils do
 
   def build_canonical_request(http_method, url, params, headers, hashed_payload) do
 
-    query_params = Enum.map(params, fn({key, value}) -> "#{key}=#{value}"  end)
+    query_params = params
     |> Enum.sort(&(&1 < &2))
     |> Enum.join("&")
 
