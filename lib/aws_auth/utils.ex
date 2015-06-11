@@ -18,7 +18,7 @@ defmodule AWSAuth.Utils do
       hashed_payload = "UNSIGNED-PAYLOAD"
     end
 
-    "#{http_method}\n#{URI.encode(url) |> String.replace("$", "%24")}\n#{query_params}\n#{header_params}\n\n#{signed_header_params}\n#{hashed_payload}"
+    "#{http_method}\n#{url}\n#{query_params}\n#{header_params}\n\n#{signed_header_params}\n#{hashed_payload}"
   end
 
   def build_string_to_sign(canonical_request, timestamp, scope) do
